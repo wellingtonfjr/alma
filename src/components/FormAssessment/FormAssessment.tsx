@@ -11,12 +11,37 @@ import * as S from './styles'
 
 const FormAssessment = () => {
   const router = useRouter()
-  const { control, register, handleSubmit, formState: { errors }, setFocus } = useForm({
+  const { control, register, handleSubmit, formState: { errors } } = useForm({
     mode: 'onBlur',
   });
 
+  const formatCurrentDate = () => {
+    const now = new Date();
+    const options = {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: true,
+    };
+    return now.toLocaleDateString("en-US", options).replace(",", "");
+  };
+
+  const generateRandomId = () => {
+    return Math.floor(Math.random() * 1000000);
+  };
+
   const onSubmit = (data: Event) => {
-    localStorage.setItem('usersAlma', JSON.stringify(data))
+    localStorage.setItem('usersAlma', JSON.stringify([
+      {
+        name: `${data.firstName} ${data.lastName}`,
+        id: generateRandomId(),
+        status: 'Pending',
+        submitted: formatCurrentDate(),
+        ...data
+      }
+    ]))
     router.push('thank-you')
   };
 
