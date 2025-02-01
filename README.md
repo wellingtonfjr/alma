@@ -15,9 +15,12 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Pages
 assessment-form -> To you see the form assessment;
+
 thank-you -> Page after to submit the form;
-leads-list -> Page to see leads, to access this page, do you need to add a cookie "auth" with any value;
-In real case, this value is will about the token user logged.
+
+leads-list -> Page to see leads, to access this page, do you need to add a cookie "auth" with any value.
+In real case, this value is will about the token user logged;
+
 login -> If you try to access leads-list without "token" (I have not implemented this page)
 
 
