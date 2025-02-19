@@ -4,7 +4,7 @@ import { Controller, useForm } from 'react-hook-form';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
-import { Checkbox, FormControl, FormControlLabel, FormHelperText, InputLabel, MenuItem, Select, Stack, TextareaAutosize, TextField } from '@mui/material';
+import { Checkbox, FormControl, FormControlLabel, FormHelperText, InputLabel, MenuItem, Select, Stack, TextField } from '@mui/material';
 import { ButtomCustom } from '../ButtomCustom';
 import { fileIcon, heartIcon } from '@/images';
 import * as S from './styles'
