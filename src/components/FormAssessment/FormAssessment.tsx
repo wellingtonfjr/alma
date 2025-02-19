@@ -17,7 +17,7 @@ const FormAssessment = () => {
 
   const formatCurrentDate = () => {
     const now = new Date();
-    const options = {
+    const options: any = {
       year: "numeric",
       month: "2-digit",
       day: "2-digit",
@@ -32,7 +32,7 @@ const FormAssessment = () => {
     return Math.floor(Math.random() * 1000000);
   };
 
-  const onSubmit = (data: Event) => {
+  const onSubmit = (data: Event | any) => {
     localStorage.setItem('usersAlma', JSON.stringify([
       {
         name: `${data.firstName} ${data.lastName}`,

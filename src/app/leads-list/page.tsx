@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+
 'use client'
 import React, { useEffect, useState } from "react";
 import {
@@ -35,8 +37,8 @@ const LeadsList = () => {
   const [rowsPerPage, setRowsPerPage] = useState(5);
   const [filters, setFilters] = useState({ name: "", status: "", country: "" });
   
-  const handleStatusChange = (id) => {
-    setLeads((prevLeads) =>
+  const handleStatusChange = (id: number) => {
+    setLeads((prevLeads: any) =>
       prevLeads.map((lead) =>
         lead.id === id ? { ...lead, status: "Reached Out" } : lead
       )
@@ -57,7 +59,7 @@ const LeadsList = () => {
   };
 
   const filteredLeads = leads.filter(
-    (lead) =>
+    (lead: any) =>
       lead.name.toLowerCase().includes(filters.name.toLowerCase()) &&
       (filters.status ? lead.status === filters.status : true) &&
       lead.country.toLowerCase().includes(filters.country.toLowerCase())
@@ -69,9 +71,9 @@ const LeadsList = () => {
   );
 
   useEffect(() => {
-    const usersFromLocalStorage = localStorage?.getItem('usersAlma') && JSON.parse(localStorage?.getItem('usersAlma'))
+    const usersFromLocalStorage = localStorage?.getItem('usersAlma') && JSON.parse(localStorage?.getItem('usersAlma') || '')
     const leadsData = [...mockUsers, ...usersFromLocalStorage]
-    setLeads(leadsData)
+    setLeads(leadsData as any)
   }, [])
 
   return (
@@ -120,7 +122,7 @@ const LeadsList = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {paginatedLeads.map((lead) => (
+            {paginatedLeads.map((lead: any) => (
               <TableRow key={lead.id}>
                 <TableCell>{lead.name}</TableCell>
                 <TableCell>{lead.submitted}</TableCell>
